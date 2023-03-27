@@ -4,7 +4,7 @@ import ksr.android.repositorysample.model.Sample
 
 interface SampleRepository {
 
-    suspend fun getLocalSample(title: String): Sample
+    suspend fun getLocalSample(): Sample
     suspend fun setLocalSample(sample: Sample)
     suspend fun getRemoteSample(): Sample
     suspend fun getPreferenceSample(): Sample

@@ -12,7 +12,7 @@ class SharedPreference(context: Context) {
         val sampleString = preference.getString(SAMPLE, "")
 
         return if (sampleString.isNullOrEmpty())
-            Sample("", "")
+            Sample(title = "", content = "")
         else
             SampleMapper.mapperStringToSample(sampleString)
     }

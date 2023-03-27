@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "sample")
 data class SampleEntity(
-    @PrimaryKey var title: String,
+    @PrimaryKey var id: Int = 0,
+    @ColumnInfo var title: String,
     @ColumnInfo var content: String
 )

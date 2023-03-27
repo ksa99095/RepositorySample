@@ -4,6 +4,6 @@ import ksr.android.repositorysample.model.SampleEntity
 
 interface LocalDataSource {
 
-    suspend fun getSample(title: String): SampleEntity
+    suspend fun getSample(): SampleEntity
     suspend fun setSample(sample: SampleEntity)
 }

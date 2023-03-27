@@ -32,9 +32,9 @@ class SampleViewModel(
         }
     }
 
-    fun getLocalSample(title: String) {
+    fun getLocalSample() {
         launchViewModelScope {
-            _sample.postValue(sampleRepositoryImpl.getLocalSample(title))
+            _sample.postValue(sampleRepositoryImpl.getLocalSample())
         }
     }
 

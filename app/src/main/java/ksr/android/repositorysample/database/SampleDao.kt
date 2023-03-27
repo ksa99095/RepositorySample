@@ -9,8 +9,8 @@ import ksr.android.repositorysample.model.SampleEntity
 @Dao
 interface SampleDao {
 
-    @Query("SELECT * FROM sample WHERE title = :title")
-    fun getSample(title: String): SampleEntity
+    @Query("SELECT * FROM sample WHERE id = 0")
+    fun getSample(): SampleEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun setSample(sample: SampleEntity)

@@ -35,12 +35,8 @@ class SampleActivity: AppCompatActivity() {
             Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
         }
         viewModel.sample.observe(this) {
-            if (it.title.isEmpty() || it.content.isEmpty()) {
-                Toast.makeText(this, "title / content is null", Toast.LENGTH_SHORT).show()
-            } else {
-                binding.title.setText(it.title)
-                binding.content.setText(it.content)
-            }
+            binding.title.setText(it.title)
+            binding.content.setText(it.content)
         }
     }
     private fun setListener() {
@@ -49,11 +45,7 @@ class SampleActivity: AppCompatActivity() {
         }
 
         binding.btnGetLocal.setOnClickListener {
-            if (binding.title.text.isNullOrEmpty()) {
-                Toast.makeText(this, "please input title", Toast.LENGTH_SHORT).show()
-            } else {
-                viewModel.getLocalSample(binding.title.text.toString())
-            }
+            viewModel.getLocalSample()
         }
 
         binding.btnSetLocal.setOnClickListener {

@@ -12,16 +12,14 @@ import ksr.android.repositorysample.repository.SampleRepositoryImpl
 import ksr.android.repositorysample.util.SharedPreference
 import ksr.android.repositorysample.view.SampleViewModel
 
-class ViewModelFactory(context: Context): ViewModelProvider.Factory {
-
-    private val mContext = context
+class ViewModelFactory(private val context: Context): ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SampleViewModel::class.java)) {
             val repository = SampleRepositoryImpl(
                 LocalDataSourceImpl(SampleDatabase.getInstance()),      // DB
                 RemoteDataSourceImpl(RetrofitBuilder.sampleApi),        // API
-                PreferenceDataSourceImpl(SharedPreference(mContext))    // Preference
+                PreferenceDataSourceImpl(SharedPreference(context))    // Preference
             )
             return SampleViewModel(repository) as T
         } else {

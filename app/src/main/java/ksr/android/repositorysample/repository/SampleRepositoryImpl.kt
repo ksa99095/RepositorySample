@@ -12,9 +12,9 @@ class SampleRepositoryImpl(
     private val preferenceDataSource: PreferenceDataSource
 ): SampleRepository {
 
-    override suspend fun getLocalSample(title: String): Sample {
+    override suspend fun getLocalSample(): Sample {
         return SampleMapper.mapperToSample(
-            localDataSource.getSample(title)
+            localDataSource.getSample()
         )
     }
 
